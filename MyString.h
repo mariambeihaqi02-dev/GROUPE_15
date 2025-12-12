@@ -13,18 +13,12 @@ class MyString {
   
 
   // Initialisation des fonctions 
-<<<<<<< HEAD
   // STUDENT A
   // Fonction qui retourne le pointeur vers les caractères , Il fait en sorte à ce que la chaine est 
   // toujours terminée par '\0'
   
   void c_str(){
-=======
-  //Omar
-  size_t capacity() const;
-  bool empty() const;
-  void reserve(size_t n); 
->>>>>>> 3e6d92f (je déclare mes 3 premières fonction ( capacity,empty,reserve))
+
   
   }
   
