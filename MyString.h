@@ -35,6 +35,12 @@ class MyString {
   }
   
 
+  //Student C 
+  size_t capacity() const;
+  bool empty() const;
+  void reserve(size_t n); 
+
+  
   private: 
   size_t size_ ;
   // size() 
