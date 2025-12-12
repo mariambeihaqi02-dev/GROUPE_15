@@ -6,18 +6,25 @@ class MyString {
   public : 
   MyString() ; //Default constructor 
   MyString(char* string) ; // Constructeur avec val comme parametre  
-  Mystring(const Mystring& s);  // Copy constructeur 
+  MyString(const MyString& s);  // Copy constructeur 
   // Creation d'un nouveau objet à partir de str => Allocation d'une nouvelle zone mémoire de taille 
   // size +1 => Copie des caracteres un par un et ajout de '\0' à la fin 
   
   
 
   // Initialisation des fonctions 
+<<<<<<< HEAD
   // STUDENT A
   // Fonction qui retourne le pointeur vers les caractères , Il fait en sorte à ce que la chaine est 
   // toujours terminée par '\0'
   
   void c_str(){
+=======
+  //Omar
+  size_t capacity() const;
+  bool empty() const;
+  void reserve(size_t n); 
+>>>>>>> 3e6d92f (je déclare mes 3 premières fonction ( capacity,empty,reserve))
   
   }
   
