@@ -1,21 +1,23 @@
-#include "MyString.h"
+#include "string.h"
+#include<iostream>
+#include<string>
 #include<cstring>
 
 
 // A string is a null-terminated character array 
 int main(){
-  char string[55] = "Hello World"; // Initialisation d'un array d'espace mémoire 55
-  std::cout<< string << std::endl; // Affichage de la phrase "Hello World"
+  String str ;
+  std::string str("Hello World");
   
-  // Fonction c_string 
-  char* string2 = new char[strlen(string)+1];
-  std::cout<< string2 << std::endl;
+  // STUDENT_A
+  String::
+  const char* cstr = str.c_str();
+  std::cout<< "The c_str of " << str << " is " << cstr << std::endl;
   
-  // cstr now contains a c-string copy of str ==>  La fonction c_str renvoie un const char* aux données stockées dans la chaîne et rajoute "/0" à la fin 
+  std::cout << "The size of " << str << " is " << str.size() << " bytes.\n";
   
+  str.clear();  
   
-  delete[] string;
-
-
+  delete[] cstr;
 
 }
