@@ -3,53 +3,51 @@
 
 const size_t String::max_size_ = 100;
 
-
+// Init of a string
 String::String(){
     size_ = 0;
     capacity_ = 10 ;
     data_ = new char[capacity_];
-    data_[0] = '\0';// Chaine de caractère vide , on place le terminator au début de la tableau 
+    data_[0] = '\0';
 }
 
-String::~String(){
-    delete[] data_ ;
-}
+//------------
+// Student A 
+//------------
 
-// STUDENT_A 
 
 // C_STR
 const char* String::c_str() {
   return data_; 
 }
-  
 // SIZE
-
 size_t String::size() const { 
    return size_;
 }
-  
 // CLEAR 
-
 void String::clear() {
   data_[0] = '\0'; 
 }
-// Assigns a new value to the string, replacing its current contents.
-// Operateur d'assignement => Vider le strinf et y mettre un seul caractére d'un coup 
-String& String::operator=(const char c ) { // Renvoie une référence vers l'objet lui meme 
+// ASSIGNEMENT OPERATOR
+
+String& String::operator=(const char c ) {  
   data_[0] = c;
   data_[1] = '\0';
-  size_ = 1; 
-  return *this ; // On renvoie l'objet modifiée 
+  //size_ = 1; 
+  //return *this ; // On renvoie l'objet modifiée 
 }
-// The string value is set to a single copy of this character (the string length becomes 1).
 
-// Vide le contenu initiale de string 
-// Vérifier s'il y a assez de capacity 
-// Ecrire le caractère à l'adresse data[0] et mettre à jour la size 
+String& String::operator=(const char c ) { 
 
-
-
-
+  // Vide le contenu initiale de string 
+  data_[0] = '\0'
+  // Vérifier s'il y a assez de capacity 
+  if capacity_ > c.size_(){
+  // Ecrire le caractère à l'adresse data[0]  
+    data_[0] = c ; 
+  // Mettre à jour la size
+    size_ = 1 
+  }
 
 
 // OPERATOR+(CONST STRING& , CONST CHAR*) 
