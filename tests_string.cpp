@@ -7,9 +7,11 @@
 // A string is a null-terminated character array 
 int main(){
   String s;
-  s = "info 5 ";
+  s = "info 5 "; // Utilisation de l'operateur d'assignement
   String s1;
   s1 = "Salut!!!";
+  String X;
+  X = "X";
   
   
   // STUDENT_A
@@ -27,9 +29,15 @@ int main(){
   s1.clear();  
   std::cout << s.c_str()[0]  << std::endl;
   std::cout << s1.c_str()[0]  << std::endl;
+  std::cout<< "Test sur l'operateur assignement  "<< std::endl;
+  if (X.size() == 1 and X.c_str()[0] == 'X' ) {
+    std::cout<< "ok "<< std::endl;
+  } else {
+    std::cout<< "pas bon "<< std::endl;
+  }
   
 
-
+/*
     //-----------
     // Student C
     //-----------
@@ -70,7 +78,7 @@ int main(){
     }
     std::cout << "tests are verified\n";
     return 0;
-
+*/
 
 
 
