@@ -18,7 +18,7 @@ class String {
    size_t size() const ;  
    void clear();  
    // Operators
-   String& operator=(char ); 
+   String& operator=(const char c  ); 
    friend String operator+(const String&, const char* )  ;
 
 

@@ -3,7 +3,7 @@
 
 const size_t String::max_size_ = 100;
 
-// Init of a string
+//Default ctor 
 String::String(){
     size_ = 0;
     capacity_ = 10 ;
@@ -30,13 +30,14 @@ void String::clear() {
 }
 // ASSIGNEMENT OPERATOR
 
-String& String::operator=(const char c ) {  
+String& String::operator=(char c ) {  
   data_[0] = c;
   data_[1] = '\0';
-  //size_ = 1; 
-  //return *this ; // On renvoie l'objet modifiée 
+  size_ = 1; 
+  return *this ; // On renvoie l'objet modifiée 
 }
 
+/*
 String& String::operator=(const char c ) { 
 
   // Vide le contenu initiale de string 
@@ -48,16 +49,19 @@ String& String::operator=(const char c ) {
   // Mettre à jour la size
     size_ = 1 
   }
-
+*/
 
 // OPERATOR+(CONST STRING& , CONST CHAR*) 
 // Concatenation d'un caractére à un string
 
+
+//String operator+(const String&, const char* )  {
 // On récupere les tailles de string et char 
 // On crée un objet local et on lui alloue de l'éspace mémoire 
 // On copie la premiere partie puis la deuxiéme ( à l'indexe de la taille du string ) 
 // Ajouter le '\0' à la fin 
 // On renvoie une variable resultat 
+
 
 
 

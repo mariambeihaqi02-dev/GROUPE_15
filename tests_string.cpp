@@ -6,41 +6,28 @@
 
 // A string is a null-terminated character array 
 int main(){
+  String s;
+  s = "info 5 ";
+  String s1;
+  s1 = "Salut!!!";
   
-  std::string str("Hello World");
-  std::string str1("Info5");
   
   // STUDENT_A
 
-  const char* cstr = str.c_str();
-  std::cout<< "The c_str of str is " << cstr << std::endl;
+  const char* cstr = s.c_str();
+  const char* cstr1 = s1.c_str();
+  std::cout<< "Le contenu de s est  " << cstr << "et sa taille est " << s.size() << " bytes.\n";
+  std::cout<< "Le contenu de s1 est  " << cstr1 << "et sa taille est " << s1.size() << " bytes.\n"; 
+  std::cout<< "Test sur la fonction clear "<< std::endl;
+ 
+  std::cout << s.c_str()[0]  << std::endl;
+  std::cout << s1.c_str()[0]  << std::endl;
   
-  std::cout << "The size of str is " << str.size() << " bytes.\n";
+  s.clear(); 
+  s1.clear();  
+  std::cout << s.c_str()[0]  << std::endl;
+  std::cout << s1.c_str()[0]  << std::endl;
   
-  const char* cstr1 = str1.c_str();
-  std::cout<< "The c_str of str is " << cstr1 << std::endl;
-  
-  std::cout << "The size of str is " << str1.size() << " bytes.\n";
-  
-  std::cout << str.c_str()[0]  << std::endl;
-  std::cout << str1.c_str()[0]  << std::endl;
-  
-  str.clear(); 
-  str1.clear();  
-  // Test de la fonction clear : 
-  std::cout << str.c_str()[0]  << std::endl;
-  std::cout << str1.c_str()[0]  << std::endl;
-  
-
-
-
-
-
-
-
-
-
-
 
 
     //-----------
@@ -48,7 +35,7 @@ int main(){
     //-----------
     std::cout << "Student C tests\n";
     {
-        String s;
+        
         assert(s.empty());
         std::cout << "default constructor\n";
     }
