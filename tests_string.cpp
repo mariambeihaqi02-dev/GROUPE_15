@@ -1,4 +1,4 @@
-#include "string.h"
+#include "String.h"
 #include<iostream>
 #include<string>
 #include<cstring>
@@ -6,18 +6,25 @@
 
 // A string is a null-terminated character array 
 int main(){
-  String str ;
+  
   std::string str("Hello World");
+  std::string str1("Info5");
   
   // STUDENT_A
-  String::
+
   const char* cstr = str.c_str();
-  std::cout<< "The c_str of " << str << " is " << cstr << std::endl;
+  std::cout<< "The c_str of str is " << cstr << std::endl;
   
-  std::cout << "The size of " << str << " is " << str.size() << " bytes.\n";
+  std::cout << "The size of str is " << str.size() << " bytes.\n";
   
-  str.clear();  
+  const char* cstr1 = str1.c_str();
+  std::cout<< "The c_str of str is " << cstr1 << std::endl;
   
-  delete[] cstr;
+  std::cout << "The size of str is " << str1.size() << " bytes.\n";
+  
+  str.clear(); 
+  str1.clear();  
+  
+  
 
 }
