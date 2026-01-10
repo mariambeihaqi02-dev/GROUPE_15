@@ -2,7 +2,7 @@
 #include<iostream>
 #include<string>
 #include<cstring>
-
+#include <cassert>
 
 // A string is a null-terminated character array 
 int main(){
@@ -31,5 +31,60 @@ int main(){
   std::cout << str.c_str()[0]  << std::endl;
   std::cout << str1.c_str()[0]  << std::endl;
   
+
+
+
+
+
+
+
+
+
+
+
+
+    //-----------
+    // Student C
+    //-----------
+    std::cout << "Student C tests\n";
+    {
+        String s;
+        assert(s.empty());
+        std::cout << "default constructor\n";
+    }
+
+    {
+        String s("hello");
+        assert(!s.empty());
+        std::cout << "const char* constructor\n";
+    }
+
+    {
+        String s("abc");
+        size_t c = s.capacity();
+        s.reserve(c + 10);
+        assert(s.capacity() >= c + 10);
+        std::cout << "reserve\n";
+    }
+
+    {
+        String s;
+        s = "INSALyon";
+        assert(!s.empty());
+        std::cout << "operator=(const char*)\n";
+    }
+
+    {
+        String a("abc");
+        String b("efg");
+        String c = a + b;
+        assert(!c.empty());
+        std::cout << "operator+\n";
+    }
+    std::cout << "tests are verified\n";
+    return 0;
+
+
+
 
 }

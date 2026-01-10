@@ -21,12 +21,27 @@ class String {
    String& operator=(const char c); // prends en paramétre un str , le pointeur , et la liste d'affectation 
    // String operator+(const String&  , const char* )  ; A revoir 
 
-  //Student C 
-   // size_t capacity() const;
-   bool empty() const;
-   void reserve(size_t n); 
+
+
+
   
-   ~String();
+  //----------------
+  // Student C 
+  //----------------
+
+  // destructor 
+    ~String(); 
+  // Methods 
+    std::size_t capacity() const;
+    bool empty() const;
+    void reserve (size_t n);
+  //operators
+    String& operator = (const char* data_);
+    friend String operator+(const String& lhs, const String& rhs);
+
+
+
+  
   private: 
    size_t size_ ; // Longeur du string sans le '\0'
    size_t capacity_ ;
