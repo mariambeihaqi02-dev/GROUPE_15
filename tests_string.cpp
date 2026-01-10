@@ -22,9 +22,14 @@ int main(){
   
   std::cout << "The size of str is " << str1.size() << " bytes.\n";
   
+  std::cout << str.c_str()[0]  << std::endl;
+  std::cout << str1.c_str()[0]  << std::endl;
+  
   str.clear(); 
   str1.clear();  
-  
+  // Test de la fonction clear : 
+  std::cout << str.c_str()[0]  << std::endl;
+  std::cout << str1.c_str()[0]  << std::endl;
   
 
 }
