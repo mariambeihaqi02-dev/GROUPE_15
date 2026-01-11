@@ -1,5 +1,5 @@
 #include "string.h"
-#include <cstring> // pour memcpy, strlen
+#include <cstring> // for memcpy
 
 const size_t string::max_size_ = 100;
 
@@ -57,27 +57,33 @@ string& string::operator=(char c) {
 // CONCATENATION OPERATOR 
 
 string operator+(const string& lhs, const char* rhs)  {
-// On récupere les tailles de string et char 
+   
+   size_t rhs_len = 0;
+    if (rhs) {
+        while (rhs[rhs_len] != '\0') {
+            rhs_len++;
+        }
+    }
 
-   size_t tot_size = lhs.size() + sizeof(rhs) ;
-   // On crée un objet de taille tot_size et on lui alloue un espace mémoire + 1 ( avec le '\0' à la fin 
-   string res; 
-  
-   if (res.capacity_ < 10) {
-     delete[] res.data_;
-     res.data_ = new char[tot_size+1]; 
-   } else {
-     res.reserve(tot_size);
-     // On copie la premiere partie ( lhs )  puis la deuxiéme ( à l'indexe de la taille de lhs ) 
-     for ( size_t i = 0 ; i < lhs.size() ; i++) {
-       res.data_[i] = lhs.data_[i]; 
-     }
-     for ( size_t i = 0 ; i < sizeof(rhs) ; i++) {
-       res.data_[i+lhs.size()] = rhs[i]; 
-     }
-     res.size_ = tot_size; 
-     res.data_[tot_size] = '\0';
+   
+   size_t tot_size = lhs.size() + rhs_len ;
+   
+   if (tot_size > string::max_size_) {
+     tot_size =  string::max_size_;
    }
+   
+   string res; 
+   res.reserve(tot_size) ; 
+
+   for ( size_t i = 0 ; i < lhs.size() and i < tot_size; i++) {
+      res.data_[i] = lhs.data_[i]; 
+   }
+   for ( size_t i = 0 ; i < rhs_len  and (lhs.size()+1) < tot_size ; i++) {
+      res.data_[i+lhs.size()] = rhs[i]; 
+   }
+   res.size_ = tot_size; 
+   res.data_[res.size_] = '\0';
+   
    return res ;
    
 } 
@@ -138,9 +144,10 @@ void string::resize(size_t n, char c) {
 string& string::operator=(const string& other) {
     if (this == &other) {
       return *this;
+      delete[] data_;
     } else {
     
-      delete[] data_;
+      
 
       size_ = other.size_;
       capacity_ = other.capacity_;
@@ -150,6 +157,7 @@ string& string::operator=(const string& other) {
         data_[i] = other.data_[i];
       }
       data_[size_] = '\0';
+      delete[] data_;
     }
     return *this;
 }
