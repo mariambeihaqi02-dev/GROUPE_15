@@ -121,20 +121,27 @@ void String::resize(size_t n, char c) {
     size_ = n;
     data_[size_] = '\0';
 }
-/*
+
 // ASSIGNMENT OPERATOR (String)
 String& String::operator=(const String& other) {
-    if (this == &other) return *this;
+    if (this == &other) {
+      return *this;
+    } else {
+    
+      delete[] data_;
 
-    delete[] data_;
-
-    size_ = other.size_;
-    capacity_ = other.capacity_;
-    data_ = new char[capacity_];
-    memcpy(data_, other.data_, size_ + 1); // +1 pour '\0'
-
+      size_ = other.size_;
+      capacity_ = other.capacity_;
+      data_ = new char[capacity_];
+      
+      for (size_t i = 0 ; i < size_ ; i++) {
+        data_[i] = other.data_[i];
+      }
+      data_[size_] = '\0';
+    }
+    return *this;
 }
-*/
+
 // OPERATOR+(const String&, char)
 String operator+(const String& lhs, char c) {
     String result;

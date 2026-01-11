@@ -60,8 +60,8 @@ int main() {
     // ----------------
     std::cout << "\nTests Student C\n";
 
-/*
-int main(){
+
+// int main(){
   String s;
   s = "info 5 "; // Utilisation de l'operateur d'assignement
   String s1;
@@ -93,7 +93,7 @@ int main(){
   }
   
 
-*/
+
     //-----------
     // Student C
     //-----------
