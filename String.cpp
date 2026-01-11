@@ -94,6 +94,7 @@ void String::resize(size_t n, char c) {
     data_[size_] = '\0';
 }
 
+<<<<<<< Updated upstream
 // ASSIGNMENT OPERATOR (String)
 String& String::operator=(const String& other) {
     if (this == &other) return *this;
@@ -104,10 +105,16 @@ String& String::operator=(const String& other) {
     capacity_ = other.capacity_;
     data_ = new char[capacity_];
     memcpy(data_, other.data_, size_ + 1); // +1 pour '\0'
+=======
+// CONCATENATION OPERATOR 
+// OPERATOR+(CONST STRING& , CONST CHAR*) 
+// Concatenation d'un caractére à un string
+>>>>>>> Stashed changes
 
     return *this;
 }
 
+<<<<<<< Updated upstream
 // OPERATOR+(const String&, char)
 String operator+(const String& lhs, char c) {
     String result;
@@ -119,6 +126,23 @@ String operator+(const String& lhs, char c) {
     size_t i = 0;
     for (; i < lhs.size_ && i < total; i++)
         result.data_[i] = lhs.data_[i];
+=======
+String operator+(const String& lhs, const char* rhs)  {
+// On récupere les tailles de string et char 
+   tot_size = lhs.size_ + rhs.size_ ;
+   // On crée un objet de taille tot_size et on lui alloue un espace mémoire + 1 ( avec le '\0' à la fin 
+   String resultat; 
+  
+   if (resultat.capacity_ > 10) {
+     delete[] resultat.data_;
+     resultat.data_ = new char[totsize+1]; 
+   }
+   // On copie la premiere partie puis la deuxiéme ( à l'indexe de la taille du string ) 
+   for ( i == 0 , i < tot_size , i++) {
+   return resultat ;
+   
+   } 
+>>>>>>> Stashed changes
 
     if (i < total) {
         result.data_[i] = c;

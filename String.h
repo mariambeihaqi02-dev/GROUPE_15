@@ -34,6 +34,7 @@ public:
     // Constructor from C-string
     String(const char* s);
 
+<<<<<<< Updated upstream
     // Methods
     size_t length() const;
     void resize(size_t n, char c = '\0');
@@ -50,6 +51,36 @@ public:
     ~String();
 
     // Methods
+=======
+  public : 
+   String() ; //Default ctor
+  
+  //----------------
+  // STUDENT A
+  //----------------
+   
+   // Copy Ctor 
+   String (const String& other) ; 
+   // Methods 
+   const char* c_str();
+   size_t size() const ;  
+   void clear();  
+   // Operators
+   String& operator=(const char c  ); 
+   friend String operator+ (const string& lhs, const char*   rhs);
+
+
+
+
+  
+  //----------------
+  // Student C 
+  //----------------
+
+  // Destructor 
+    ~String(); 
+  // Methods 
+>>>>>>> Stashed changes
     std::size_t capacity() const;
     bool empty() const;
     void reserve(size_t n);
