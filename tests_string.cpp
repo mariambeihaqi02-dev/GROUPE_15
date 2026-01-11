@@ -2,7 +2,7 @@
 #include <iostream>
 #include <cassert>
 
-<<<<<<< Updated upstream
+
 int main() {
 
     // ----------------
@@ -59,8 +59,8 @@ int main() {
     // Student C tests
     // ----------------
     std::cout << "\nTests Student C\n";
-=======
-// A string is a null-terminated character array 
+
+/*
 int main(){
   String s;
   s = "info 5 "; // Utilisation de l'operateur d'assignement
@@ -93,7 +93,7 @@ int main(){
   }
   
 
-/*
+*/
     //-----------
     // Student C
     //-----------
@@ -103,7 +103,7 @@ int main(){
         assert(s.empty());
         std::cout << "default constructor\n";
     }
->>>>>>> Stashed changes
+
 
     {
         String sc;
