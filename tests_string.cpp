@@ -100,7 +100,7 @@ int main(){
     std::cout << "Student C tests\n";
     {
         
-        assert(s.empty());
+        assert(sb.empty());
         std::cout << "default constructor\n";
     }
 

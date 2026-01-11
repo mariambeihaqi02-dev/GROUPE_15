@@ -46,20 +46,30 @@ String& String::operator=(char c) {
 
 String operator+(const String& lhs, const char* rhs)  {
 // On récupere les tailles de string et char 
-   tot_size = lhs.size_ + rhs.size_ ;
+
+   size_t tot_size = lhs.size() + sizeof(rhs) ;
    // On crée un objet de taille tot_size et on lui alloue un espace mémoire + 1 ( avec le '\0' à la fin 
-   String resultat; 
+   String res; 
   
-   if (resultat.capacity_ > 10) {
-     delete[] resultat.data_;
-     resultat.data_ = new char[totsize+1]; 
+   if (res.capacity_ < 10) {
+     delete[] res.data_;
+     res.data_ = new char[tot_size+1]; 
+   } else {
+     res.reserve(tot_size);
+     // On copie la premiere partie ( lhs )  puis la deuxiéme ( à l'indexe de la taille de lhs ) 
+     for ( size_t i = 0 ; i < lhs.size() ; i++) {
+       res.data_[i] = lhs.data_[i]; 
+     }
+     for ( size_t i = 0 ; i < sizeof(rhs) ; i++) {
+       res.data_[i+lhs.size()] = rhs[i]; 
+     }
+     res.size_ = tot_size; 
+     res.data_[tot_size] = '\0';
    }
-   // On copie la premiere partie puis la deuxiéme ( à l'indexe de la taille du string ) 
-   for ( i == 0 , i < tot_size , i++) {
-   return resultat ;
+   return res ;
    
-   } 
-}
+} 
+
 //------------
 // Student B
 //------------
@@ -111,7 +121,7 @@ void String::resize(size_t n, char c) {
     size_ = n;
     data_[size_] = '\0';
 }
-
+/*
 // ASSIGNMENT OPERATOR (String)
 String& String::operator=(const String& other) {
     if (this == &other) return *this;
@@ -124,6 +134,7 @@ String& String::operator=(const String& other) {
     memcpy(data_, other.data_, size_ + 1); // +1 pour '\0'
 
 }
+*/
 // OPERATOR+(const String&, char)
 String operator+(const String& lhs, char c) {
     String result;
