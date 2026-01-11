@@ -23,6 +23,36 @@ int main() {
     assert(sa.c_str()[0] == 'X');
     std::cout << "c_str() OK, contenu : " << sa.c_str() << "\n";
     std::cout << "size() OK, taille : " << sa.size() << "\n";
+    
+    // int main(){
+    string s;
+    s = "info 5 "; // Utilisation de l'operateur d'assignement
+    string s1;
+    s1 = "Salut!!!";
+    string X;
+    X = "X";
+    const char* cstr = s.c_str();
+    const char* cstr1 = s1.c_str();
+    std::cout<< "Test sur size et c_str "<< std::endl;
+    std::cout<< "Le contenu de s est  " << cstr << "et sa taille est " << s.size() << " bytes.\n";
+    std::cout<< "Le contenu de s1 est  " << cstr1 << "et sa taille est " << s1.size() << " bytes.\n"; 
+    std::cout<< "Test sur la fonction clear "<< std::endl;
+ 
+    std::cout << s.c_str()[0]  << std::endl;
+    std::cout << s1.c_str()[0]  << std::endl;
+  
+    s.clear(); 
+    s1.clear();  
+    std::cout << s.c_str()[0]  << std::endl;
+    std::cout << s1.c_str()[0]  << std::endl;
+    std::cout<< "Test sur l'operateur assignement  "<< std::endl;
+    if (X.size() == 1 and X.c_str()[0] == 'X' ) {
+      std::cout<< "ok "<< std::endl;
+    } else {
+      std::cout<< "pas bon "<< std::endl;
+    }
+    
+  
 
     // ----------------
     // Student B tests
@@ -59,81 +89,30 @@ int main() {
     // Student C tests
     // ----------------
     std::cout << "\nTests Student C\n";
-
-
-// int main(){
-  string s;
-  s = "info 5 "; // Utilisation de l'operateur d'assignement
-  string s1;
-  s1 = "Salut!!!";
-  string X;
-  X = "X";
-  
-  // STUDENT_A
-
-  const char* cstr = s.c_str();
-  const char* cstr1 = s1.c_str();
-  std::cout<< "Test sur size et c_str "<< std::endl;
-  std::cout<< "Le contenu de s est  " << cstr << "et sa taille est " << s.size() << " bytes.\n";
-  std::cout<< "Le contenu de s1 est  " << cstr1 << "et sa taille est " << s1.size() << " bytes.\n"; 
-  std::cout<< "Test sur la fonction clear "<< std::endl;
- 
-  std::cout << s.c_str()[0]  << std::endl;
-  std::cout << s1.c_str()[0]  << std::endl;
-  
-  s.clear(); 
-  s1.clear();  
-  std::cout << s.c_str()[0]  << std::endl;
-  std::cout << s1.c_str()[0]  << std::endl;
-  std::cout<< "Test sur l'operateur assignement  "<< std::endl;
-  if (X.size() == 1 and X.c_str()[0] == 'X' ) {
-    std::cout<< "ok "<< std::endl;
-  } else {
-    std::cout<< "pas bon "<< std::endl;
-  }
-  
-
-
-    //-----------
-    // Student C
-    //-----------
-    std::cout << "Student C tests\n";
-    {
-        
         assert(sb.empty());
         std::cout << "default constructor\n";
-    }
 
-
-    {
         string sc;
         assert(sc.empty());
         std::cout << "empty() OK\n";
-    }
-
-    {
+   
         string sc2("abc");
         size_t c = sc2.capacity();
         sc2.reserve(c + 10);
         assert(sc2.capacity() >= c + 10);
         std::cout << "reserve() OK\n";
-    }
 
-    {
         string sc3;
         sc3 = "INSALyon";
         assert(!sc3.empty());
         std::cout << "operator=(const char*) OK, contenu : " << sc3.c_str() << "\n";
-    }
 
-    {
         string a("abc");
         string b("efg");
-        string c = a + b;
-        assert(!c.empty());
-        std::cout << "operator+(string,string) OK, contenu : " << c.c_str() << "\n";
-    }
-
+        string d = a + b;
+        assert(!d.empty());
+        std::cout << "operator+(string,string) OK, contenu : " << d.c_str() << "\n";
+    
     std::cout << "\nAll tests passed!\n";
     return 0;
 }
