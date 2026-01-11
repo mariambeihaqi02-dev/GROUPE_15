@@ -20,7 +20,7 @@ int main() {
     assert(sa.size() == 0);
     std::cout << "clear() OK\n";
     
-    string res_a = sa + "ello";
+    string res_a = sa + "ey";
     std::cout << "Taille obtenue : " << res_a.size() << " (Attendu : 5)" << std::endl;
     assert(res_a.size() == 5);
     assert(res_a.c_str()[0] == 'H');

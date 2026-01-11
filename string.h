@@ -20,8 +20,8 @@ public:
 
     // Operators
     string& operator=(const char c);
-    friend string operator+(const string&, const char*);
-    //----------------
+    friend string operator+(const string& s, const char* data) ;
+//----------------
     // STUDENT B
     //----------------
 

@@ -56,39 +56,27 @@ string& string::operator=(char c) {
 
 // CONCATENATION OPERATOR 
 
-string operator+(const string& lhs, const char* rhs)  {
-   
-   size_t rhs_len = 0;
-    if (rhs) {
-        while (rhs[rhs_len] != '\0') {
-            rhs_len++;
-        }
+string operator+(const string& s, const char* data) {
+    string res;
+    size_t tot_size = s.size() + sizeof(data);
+
+
+    res.reserve(tot_size);
+
+    for (size_t i = 0; i<s.size(); i++) {
+        res.data_[i] = s.data_[i];
     }
 
-   
-   size_t tot_size = lhs.size() + rhs_len ;
-   
-   if (tot_size > string::max_size_) {
-     tot_size =  string::max_size_;
-   }
-   
-   string res; 
-   res.reserve(tot_size) ; 
+    for (size_t i=0; i < sizeof(data); i++) {
+        res.data_[i +s.size()] = data[i];
+    }
 
-   for ( size_t i = 0 ; i < lhs.size() and i < tot_size; i++) {
-      res.data_[i] = lhs.data_[i]; 
-   }
-   for ( size_t i = 0 ; i < rhs_len  and (lhs.size()+1) < tot_size ; i++) {
-      res.data_[i+lhs.size()] = rhs[i]; 
-   }
-   res.size_ = tot_size; 
-   res.data_[res.size_] = '\0';
-   
-   return res ;
-   
-} 
-
-//------------
+    res.data_[tot_size] = '\0';
+    res.size_ = tot_size;
+    
+    
+    return res;
+}
 // Student B
 //------------
 
