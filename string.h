@@ -3,10 +3,8 @@
 
 class string {
 public:
-    //--------------------
-    // Default ctor
-    //--------------------
-    string();  
+
+    string();  // Default ctor
 
     //----------------
     // STUDENT A

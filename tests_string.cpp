@@ -1,4 +1,4 @@
-#include "String.h"
+#include "string.h"
 #include <iostream>
 #include <cassert>
 
@@ -10,7 +10,7 @@ int main() {
     // ----------------
     std::cout << "Tests Student A\n";
     
-    String sa;
+    string sa;
     sa = 'H'; // operator=(char)
     assert(sa.size() == 1);
     std::cout << "operator=(char) OK, contenu : " << sa.c_str() << "\n";
@@ -30,7 +30,7 @@ int main() {
     std::cout << "\nTests Student B\n";
 
     // Constructor from C-string
-    String sb("Bonjour");
+    string sb("Bonjour");
     assert(sb.length() == 7);
     std::cout << "Constructor from const char* OK\n";
 
@@ -44,16 +44,16 @@ int main() {
     assert(sb.length() == 5);
     std::cout << "Resize smaller OK, contenu : " << sb.c_str() << "\n";
 
-    // Operator=(const String&)
-    String sb2;
+    // Operator=(const string&)
+    string sb2;
     sb2 = sb;
     assert(sb2.length() == sb.length());
-    std::cout << "Operator=(const String&) OK, contenu : " << sb2.c_str() << "\n";
+    std::cout << "Operator=(const string&) OK, contenu : " << sb2.c_str() << "\n";
 
-    // Operator+(String,char)
-    String sb3 = sb + '!';
+    // Operator+(string,char)
+    string sb3 = sb + '!';
     assert(sb3.length() == sb.length() + 1);
-    std::cout << "Operator+(String,char) OK, contenu : " << sb3.c_str() << "\n";
+    std::cout << "Operator+(string,char) OK, contenu : " << sb3.c_str() << "\n";
 
     // ----------------
     // Student C tests
@@ -62,11 +62,11 @@ int main() {
 
 
 // int main(){
-  String s;
+  string s;
   s = "info 5 "; // Utilisation de l'operateur d'assignement
-  String s1;
+  string s1;
   s1 = "Salut!!!";
-  String X;
+  string X;
   X = "X";
   
   // STUDENT_A
@@ -106,13 +106,13 @@ int main() {
 
 
     {
-        String sc;
+        string sc;
         assert(sc.empty());
         std::cout << "empty() OK\n";
     }
 
     {
-        String sc2("abc");
+        string sc2("abc");
         size_t c = sc2.capacity();
         sc2.reserve(c + 10);
         assert(sc2.capacity() >= c + 10);
@@ -120,18 +120,18 @@ int main() {
     }
 
     {
-        String sc3;
+        string sc3;
         sc3 = "INSALyon";
         assert(!sc3.empty());
         std::cout << "operator=(const char*) OK, contenu : " << sc3.c_str() << "\n";
     }
 
     {
-        String a("abc");
-        String b("efg");
-        String c = a + b;
+        string a("abc");
+        string b("efg");
+        string c = a + b;
         assert(!c.empty());
-        std::cout << "operator+(String,String) OK, contenu : " << c.c_str() << "\n";
+        std::cout << "operator+(string,string) OK, contenu : " << c.c_str() << "\n";
     }
 
     std::cout << "\nAll tests passed!\n";

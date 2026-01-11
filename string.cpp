@@ -17,10 +17,18 @@ string::string(){
 // Student A
 //------------
 
-// Copy ctor 
+// COPY CTOR
+string::string(const string& strcp) {
+    size_ = strcp.size_;
+    capacity_ = strcp.capacity_;
+    data_ = new char[capacity_];
 
+    for (size_t i = 0; i < size_; i++) {
+        data_[i] = strcp.data_[i];
+    }
 
-
+    data_[size_] = '\0';
+}
 
 // C_STR
 const char* string::c_str() {
