@@ -58,22 +58,31 @@ string& string::operator=(char c) {
 
 string operator+(const string& s, const char* data) {
     string res;
-    size_t tot_size = s.size() + sizeof(data);
+    size_t len = 0;
+    if (data) {
+        while (data[len] != '\0') {
+            len++;
+        }
+    }
 
+    size_t tot_size = s.size() + len;
+    if (tot_size > string::max_size_) tot_size = string::max_size_;
 
     res.reserve(tot_size);
 
-    for (size_t i = 0; i<s.size(); i++) {
+    size_t i = 0;
+    
+    for (; i < s.size() and  i < tot_size; i++) {
         res.data_[i] = s.data_[i];
     }
 
-    for (size_t i=0; i < sizeof(data); i++) {
-        res.data_[i +s.size()] = data[i];
+    
+    for (size_t j = 0; j < len and i < tot_size; j++, i++) {
+        res.data_[i] = data[j];
     }
 
-    res.data_[tot_size] = '\0';
-    res.size_ = tot_size;
-    
+    res.data_[i] = '\0';
+    res.size_ = i;
     
     return res;
 }
@@ -131,22 +140,21 @@ void string::resize(size_t n, char c) {
 // ASSIGNMENT OPERATOR (String)
 string& string::operator=(const string& other) {
     if (this == &other) {
-      return *this;
-      delete[] data_;
-    } else {
-    
-      
-
-      size_ = other.size_;
-      capacity_ = other.capacity_;
-      data_ = new char[capacity_];
-      
-      for (size_t i = 0 ; i < size_ ; i++) {
-        data_[i] = other.data_[i];
-      }
-      data_[size_] = '\0';
-      delete[] data_;
+        return *this;
     }
+    
+    // On libère d'abord l'ancienne mémoire
+    delete[] data_;
+
+    size_ = other.size_;
+    capacity_ = other.capacity_;
+    data_ = new char[capacity_];
+    
+    for (size_t i = 0 ; i < size_ ; i++) {
+        data_[i] = other.data_[i];
+    }
+    data_[size_] = '\0';
+    
     return *this;
 }
 
@@ -189,18 +197,18 @@ bool string::empty() const {
 
 void string::reserve(std::size_t n) {
     if (n > max_size_) n = max_size_;
-    if (n <= capacity_) return;
+    if (n < capacity_) return; 
 
     char* new_string = new char[n + 1];
     for (size_t i = 0; i < size_; ++i) {
         new_string[i] = data_[i];
     }
     new_string[size_] = '\0';
+    
     delete[] data_;
     data_ = new_string;
-    capacity_ = n;
+    capacity_ = n + 1; 
 }
-
 string& string::operator=(const char* s) {
     if (!s) {
         size_ = 0;

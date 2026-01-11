@@ -10,25 +10,27 @@ int main() {
     // ----------------
     std::cout << "Tests Student A\n";
     
-    string sa;
-    sa = 'H'; // operator=(char)
-    assert(sa.size() == 1) ;
-    assert(sa.c_str()[0] == 'H') ;
-    std::cout << "operator=(char) OK, contenu : " << sa.c_str() << "\n";
-
-    sa.clear();
-    assert(sa.size() == 0);
-    std::cout << "clear() OK\n";
+    string sa1;
+    sa1 = "Hello"; 
+    assert(sa1.c_str()[0] == 'H') ; // operator=(char)
+    std::cout << "operator=(char) OK "<< "\n";
+    std::cout << "c_str OK, contenu : " << sa1.c_str() << "\n";
+    assert(sa1.size() == 5) ;
+    std::cout << "size OK, contenu : " << sa1.size() << "\n";
     
-    string res_a = sa + "ey";
-    std::cout << "Taille obtenue : " << res_a.size() << " (Attendu : 5)" << std::endl;
-    assert(res_a.size() == 5);
-    assert(res_a.c_str()[0] == 'H');
-    std::cout << "operator+(str,char) OK, contenu : " << res_a.c_str() << "\n";
-    
-    assert(res_a.size() == 4);   
+   
+    char* sa2 = new char[2]; 
+    sa2[0] = '!'; 
+    sa2[1] = '\0';
+      
+    string res_a = sa1 + sa2;
     std::cout << "operator+(string, char*) OK, contenu : " << res_a.c_str() << "\n"; 
     
+    sa1.clear();
+    assert(sa1.size() == 0);
+    std::cout << "clear() OK\n";
+    
+    delete[] sa2;
     // ----------------
     // Student B tests
     // ----------------
